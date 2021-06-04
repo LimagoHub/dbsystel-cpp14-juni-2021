@@ -9,6 +9,8 @@ auto add(T1 t1, T2 t2)-> decltype(t1 + t2)
 	return t1 + t2;
 }
 
+
+// Variadic Template
 template<typename T>
 void f(T t)
 {
@@ -25,6 +27,17 @@ void f(T head, Tail... tail)
 	
 }
 //void f(){}
+
+template<typename... Arguments>
+class vt_class
+{
+public:
+	explicit vt_class(Arguments ...arguments)
+	{
+		
+	}
+	
+};
 
 int main()
 {
