@@ -26,18 +26,7 @@ void f(T head, Tail... tail)
 	f(tail...);
 	
 }
-//void f(){}
 
-template<typename... Arguments>
-class vt_class
-{
-public:
-	explicit vt_class(Arguments ...arguments)
-	{
-		
-	}
-	
-};
 
 int main()
 {
