@@ -28,15 +28,24 @@ void f(T head, Tail... tail)
 }
 
 
-int main()
+int main() noexcept
 {
 
-	auto e1 = add(3, 4);
-	auto e2 = add(3.0, 4);
+	try
+	{
+		auto e1 = add(3, 4);
+		auto e2 = add(3.0, 4);
 
-	f(1, 3.4, "Hallo", e1,5);
-	
-    std::cout << "Hello World!\n";
+		f(1, 3.4, "Hallo", e1, 5);
+
+		std::cout << "Hello World!\n";
+
+	}
+	catch (const std::exception&)
+	{
+		std::cout << "Haaaaaaalloooooo?" << std::endl;
+	}
+	return 0;
 }
 
 
