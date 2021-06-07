@@ -14,7 +14,7 @@ int main()
 	s.push(20);
 	s.push(30);
 
-	Stapel other = 100;
+	Stapel other{ 100 };
 
 	other = std::move(s);
 
@@ -29,8 +29,10 @@ int main()
 	//std::cout << a << std::endl;
 	//std::cout << b << std::endl;
 	
+	Stapel s2{Stapel(5)} ;
 
-	
+	std::cout << s2.size << std::endl;
+
 	
     std::cout << "Hello World!\n";
 }
