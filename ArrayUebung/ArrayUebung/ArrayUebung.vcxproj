@@ -139,7 +139,11 @@
     </Link>
   </ItemDefinitionGroup>
   <ItemGroup>
+    <ClCompile Include="ArrayManager.cpp" />
     <ClCompile Include="ArrayUebung.cpp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ClInclude Include="ArrayManager.h" />
   </ItemGroup>
   <Import Project="$(VCTargetsPath)\Microsoft.Cpp.targets" />
   <ImportGroup Label="ExtensionTargets">
