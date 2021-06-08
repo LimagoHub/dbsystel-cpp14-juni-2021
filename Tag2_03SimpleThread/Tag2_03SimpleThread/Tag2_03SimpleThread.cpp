@@ -66,7 +66,7 @@ int main()
 
 	piggy.ausgabe();
 
-	piggy.fressen();
+	piggy.fressen(); // Asynchron
 
 
 	piggy.ausgabe();
