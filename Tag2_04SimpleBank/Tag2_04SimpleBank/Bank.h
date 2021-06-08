@@ -12,13 +12,14 @@ private:
 	std::mt19937 engine{ rn() };
 	std::uniform_int_distribution<int> dice{ 0, 1000 };
 
-	std::mutex myMutex;
+	//std::mutex myMutex;
+	std::recursive_mutex myMutex;
 public:
 	Bank() = default;
-
+	
 	void kontostand_ausgeben()
 	{
-		std::lock_guard<std::mutex> myGuard(myMutex);
+		std::lock_guard<std::recursive_mutex> myGuard(myMutex);
 		for (int i = 0; i < (sizeof(konten) / sizeof(int)); i++) {
 			std::cout << "Konto Nr. " << i << " hat den Wert " << konten[i] << std::endl;
 		}
@@ -29,7 +30,7 @@ public:
 	void ueberweisen(int von, int nach, int betrag)
 	{
 		
-		std::lock_guard<std::mutex> myGuard(myMutex);
+		std::lock_guard<std::recursive_mutex> myGuard(myMutex);
 		int zettel = konten[von];
 		zettel -= betrag;
 		std::this_thread::sleep_for(std::chrono::milliseconds(dice(engine)));
