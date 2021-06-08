@@ -12,6 +12,12 @@ class schwein
 private:
 	std::string name;
 	volatile int gewicht;
+
+	void fressen_impl()
+	{
+		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
+		gewicht++;
+	}
 public:
 	schwein(std::string name = "Nobody") :name(name), gewicht(10){}
 
@@ -32,8 +38,7 @@ public:
 
 	void fressen()
 	{
-		std::this_thread::sleep_for(std::chrono::milliseconds(2000));
-		gewicht++;
+		std::thread{ [this]() {fressen_impl(); } }.detach();
 	}
 
 	void ausgabe()
@@ -66,6 +71,8 @@ int main()
 
 	piggy.ausgabe();
 
+	piggy.fressen(); // Asynchron
+	piggy.fressen(); // Asynchron
 	piggy.fressen(); // Asynchron
 
 
